@@ -14,4 +14,5 @@ class Vector(val x: Double, val y: Double, val z: Double) {
     case that: Vector => x == that.x && y == that.y && z == that.z
     case _ => false
   }
+  
 }
