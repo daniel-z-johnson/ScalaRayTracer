@@ -7,6 +7,9 @@ class Vector(val x: Double, val y: Double, val z: Double) {
   def unary_- = new Vector(-x, -y, -z)
 
   def -(that: Vector): Vector = this + -that
+  def x(that: Vector): Vector = new Vector(y * that.z - z * that.y, 
+		  									x * that.z - z * that.x, 
+		  									x * that.y - y * that.x)
 
   def magitude(): Double = math.sqrt(x * x + y * y + z * z)
 

@@ -10,6 +10,9 @@ class VectorTest extends FunSuite {
   val b: Vector = new Vector(2, 3, 4)
   val c: Vector = new Vector(3, 5, 7)
   val negC: Vector = new Vector(-3, -5, -7)
+  val aXb: Vector = new Vector(-1, -2, -1)
+  val bXc: Vector = new Vector(1, 2, 1)
+  val aXc: Vector = new Vector(-1, -2, -1)
 
   val magA: Double = math.sqrt(1 + 4 + 9)
   val magB: Double = math.sqrt(4 + 9 + 16)
@@ -78,12 +81,27 @@ class VectorTest extends FunSuite {
   test("a dot c == c dot a") {
     assert((a dot c) == (c dot a))
   }
-  
+
   test("b dot c") {
     assert((b dot c) == bDotC)
   }
-  
+
   test("b dot c == c dot b") {
     assert((b dot c) == (c dot b))
+  }
+
+  test("a x b") {
+    assert((a x b) == aXb)
+    assert((b x a) == -(aXb))
+  }
+  
+  test("b x c") {
+    assert((b x c) == bXc)
+    assert((c x b) == -(bXc))
+  }
+  
+  test("a x c") {
+    assert((a x c) == aXc)
+    assert((c x a) == -(aXc))
   }
 }
