@@ -10,13 +10,13 @@ class VectorTest extends FunSuite {
   val b: Vector = new Vector(2, 3, 4)
   val c: Vector = new Vector(3, 5, 7)
   val negC: Vector = new Vector(-3, -5, -7)
-  
+
   val magA: Double = math.sqrt(1 + 4 + 9)
   val magB: Double = math.sqrt(4 + 9 + 16)
   val magC: Double = math.sqrt(9 + 25 + 49)
-  
+
   val aDotB: Double = 20
-  val aDotC: Double = 31
+  val aDotC: Double = 34
   val bDotC: Double = 49
 
   test("a + b = c") {
@@ -34,41 +34,56 @@ class VectorTest extends FunSuite {
   test("c - b = a") {
     assert(c - b == a)
   }
-  
+
   test("using -c really yields -c") {
     assert(-c == negC)
   }
-  
+
   test("using -negc yields c") {
     assert(-negC == c)
   }
-  
+
   test("uing - twice on c yields c, will never use in code but it is a test") {
     assert(-(-c) == c)
   }
-  
+
   test("magitude function works test a") {
     assert(magA == a.magitude)
   }
-  
+
   test("magitude function works test b") {
     assert(magB == b.magitude)
   }
-  
+
   test("magitude function works test c") {
     assert(magC == c.magitude)
   }
-  
+
   test("magitude function works test negC") {
     assert(magC == negC.magitude)
   }
-  
+
   test("a dot b") {
     assert((a dot b) == aDotB)
   }
-  
+
   test("a dot b == b dot a") {
     assert((a dot b) == (b dot a))
   }
 
+  test("a dot c") {
+    assert((a dot c) == aDotC)
+  }
+
+  test("a dot c == c dot a") {
+    assert((a dot c) == (c dot a))
+  }
+  
+  test("b dot c") {
+    assert((b dot c) == bDotC)
+  }
+  
+  test("b dot c == c dot b") {
+    assert((b dot c) == (c dot b))
+  }
 }
