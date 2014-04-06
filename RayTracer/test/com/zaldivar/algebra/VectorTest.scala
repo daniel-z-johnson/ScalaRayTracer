@@ -14,6 +14,10 @@ class VectorTest extends FunSuite {
   val magA: Double = math.sqrt(1 + 4 + 9)
   val magB: Double = math.sqrt(4 + 9 + 16)
   val magC: Double = math.sqrt(9 + 25 + 49)
+  
+  val aDotB: Double = 20
+  val aDotC: Double = 31
+  val bDotC: Double = 49
 
   test("a + b = c") {
     assert(a + b == c)
@@ -57,6 +61,14 @@ class VectorTest extends FunSuite {
   
   test("magitude function works test negC") {
     assert(magC == negC.magitude)
+  }
+  
+  test("a dot b") {
+    assert((a dot b) == aDotB)
+  }
+  
+  test("a dot b == b dot a") {
+    assert((a dot b) == (b dot a))
   }
 
 }
