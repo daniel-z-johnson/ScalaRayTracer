@@ -6,13 +6,13 @@ import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class VectorTest extends FunSuite {
-  val a: Vector = new Vector(1, 2, 3)
-  val b: Vector = new Vector(2, 3, 4)
-  val c: Vector = new Vector(3, 5, 7)
-  val negC: Vector = new Vector(-3, -5, -7)
-  val aXb: Vector = new Vector(-1, -2, -1)
-  val bXc: Vector = new Vector(1, 2, 1)
-  val aXc: Vector = new Vector(-1, -2, -1)
+  val a: Vector3d = new Vector3d(1, 2, 3)
+  val b: Vector3d = new Vector3d(2, 3, 4)
+  val c: Vector3d = new Vector3d(3, 5, 7)
+  val negC: Vector3d = new Vector3d(-3, -5, -7)
+  val aXb: Vector3d = new Vector3d(-1, -2, -1)
+  val bXc: Vector3d = new Vector3d(1, 2, 1)
+  val aXc: Vector3d = new Vector3d(-1, -2, -1)
 
   val magA: Double = math.sqrt(1 + 4 + 9)
   val magB: Double = math.sqrt(4 + 9 + 16)
@@ -94,14 +94,26 @@ class VectorTest extends FunSuite {
     assert((a x b) == aXb)
     assert((b x a) == -(aXb))
   }
-  
+
   test("b x c") {
     assert((b x c) == bXc)
     assert((c x b) == -(bXc))
   }
-  
+
   test("a x c") {
     assert((a x c) == aXc)
     assert((c x a) == -(aXc))
+  }
+
+  test("2*a") {
+    assert(a * 2 == a + a)
+  }
+
+  test("2.0*a") {
+    assert(a * 2.0 == a + a)
+  }
+  
+  test("3*c") {
+    assert(c*3 == c + c + c)
   }
 }
